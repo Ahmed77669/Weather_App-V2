@@ -5,6 +5,7 @@ import LoginPage from "./pages/LoginPage";
 import SignUp from "./pages/SignUp";
 import Weather from "./pages/Weather";
 import Forget from "./pages/Forget";
+import {useSelector} from "react-redux";
 import { Typography } from "@mui/material";
 import DataFetchingComponent from './DataFetchingComponent'; 
 import CustomTypography from './Components/CustomTypography';
@@ -12,9 +13,11 @@ import {app} from "./firebase";
 import {getDatabase, ref, set} from "firebase/database"
 
 export default function App() {
+  const user = useSelector((state) => state.data.user);
+
   return (
     <div>
-
+      {/* user ? <Weather /> : <SignUp /> */}
      <Router>
       <Routes>
         <Route path="/" element={<Home />} />

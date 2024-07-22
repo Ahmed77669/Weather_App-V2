@@ -17,3 +17,5 @@ export const userSlice = createSlice({
         },
     }
 })
+
+export const {loginUser,setLoading} = userSlice.actions;
