@@ -1,25 +1,32 @@
-import logo from './logo.svg';
-import './App.css';
+import ReactDOM from "react-dom/client";
+import { HashRouter as Router, Routes, Route } from "react-router-dom"; 
+import Home from "./pages/Home";
+import LoginPage from "./pages/LoginPage";
+import SignUp from "./pages/SignUp";
+import Weather from "./pages/Weather";
+import Forget from "./pages/Forget";
+import { Typography } from "@mui/material";
+import DataFetchingComponent from './DataFetchingComponent'; 
+import CustomTypography from './Components/CustomTypography';
+import {app} from "./firebase";
+import {getDatabase, ref, set} from "firebase/database"
 
-function App() {
+export default function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+
+     <Router>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/LoginPage" element={<LoginPage />} />
+        <Route path="/SignUp" element={<SignUp />} />
+        <Route path="/Forget" element={<Forget />} />
+        <Route path="/Weather" element={<Weather />} />
+      </Routes>
+    </Router> 
     </div>
   );
 }
 
-export default App;
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(<App />);

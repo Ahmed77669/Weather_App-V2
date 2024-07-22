@@ -1,0 +1,127 @@
+body {
+  background-color: hsl(0, 0%, 98%);
+  padding: 0;
+  margin: 0;
+}
+
+#Lo {
+  border: none;
+  background-color: hsl(0, 0%, 98%);
+  color: hsl(0, 0%, 41%);
+  margin-right: 20px;
+}
+
+#Lo:hover {
+  color: hsl(0, 0%, 0%);
+  cursor: pointer;
+}
+
+#Si {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  width: 80px;
+  border-radius: 8px;
+  border: 1px solid hsl(0, 0%, 41%);
+  font-family: Epilogue;
+  color: hsl(0, 0%, 41%);
+  background-color: #FFFFFF;
+
+}
+
+#Si:hover {
+  cursor: pointer;
+  border-color: hsl(0, 0%, 0%);
+  color: #000000;
+}
+
+#Lo1 {
+  padding-top: 20px;
+  padding-bottom: 20px;
+  width: 120px;
+  border-radius: 8px;
+  border: 1px solid hsl(0, 0%, 41%);
+  font-family: Epilogue;
+  color: hsl(0, 0%, 41%);
+  background-color: #FFFFFF;
+  margin-right: 30px;
+}
+
+#Lo1:hover {
+  cursor: pointer;
+  border-color: hsl(0, 0%, 0%);
+  color: #000000;
+}
+
+#Si1 {
+  padding-top: 20px;
+  padding-bottom: 20px;
+  width: 120px;
+  border-radius: 8px;
+  border: 1px solid hsl(0, 0%, 41%);
+  font-family: Epilogue;
+  color: hsl(0, 0%, 41%);
+  background-color: #FFFFFF;
+}
+
+#Si1:hover {
+  cursor: pointer;
+  border-color: hsl(0, 0%, 0%);
+  color: #000000;
+}
+.weather_i{
+  width: 750px;margin-top:50%; margin-right: 20px;
+}
+.w_{
+  font-family: Epilogue;font-size: 70px;font-weight: 700; margin-top: 280px;line-height: 90px;
+}
+.wS{
+  width: 450px;
+}
+.mS{
+  width: 700px ; margin-bottom: 40px;
+}
+.m_{
+  font-family: Epilogue; font-size: 18px;line-height: 30px;color: hsl(0, 0%, 41%);
+}
+@media (max-width: 850px) {
+  .weather_i{
+    width: 450px;
+    margin-left: 20px;
+  }
+  .wS{
+    width: 350px;
+  }
+  .w_{
+    font-size: 40px;
+    line-height: 60px;
+  }
+  .mS{
+    width: 400px;
+  }
+  .m_{
+    font-size: 16px;
+    line-height: 25px;
+  }
+};
+  /* @media (max-width: 550px) {
+    .weather_i{
+      width: 450px;
+      margin-left: 20px;
+    }
+    .wS{
+      width: 350px;
+    }
+    .w_{
+      font-size: 40px;
+      line-height: 60px;
+    }
+    .mS{
+      width: 400px;
+    }
+    .m_{
+      font-size: 16px;
+      line-height: 25px;
+    }
+  }; */
+
+  

@@ -1,0 +1,87 @@
+.nn{
+    display: flex;
+    justify-content: center;
+    background-color: rgb(255, 255, 255);
+    vertical-align: center;
+    height: 100vh;
+}
+.container {
+    width: 1100px;
+    border: none;
+       height: 65vh;
+    background-color: #FFFFFF;
+    border-radius: 8px;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10%;
+    box-shadow: 5px 3px 10px black;
+    border: 1px solid gray;
+}
+.login {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    margin-left: 20px;
+}
+input {
+    display: flex;
+    padding: 15px 50px;
+    border-radius: 4px;
+    margin-top: 5px;
+    border: solid 1px rgb(209, 201, 201);
+    margin-bottom: 30px;
+    width: 300px;
+    font-size: 20px;
+}
+input::placeholder{
+    font-size: 20px;
+    padding: 0;
+    margin: 0;
+}
+.welcome_d{
+    margin-left: 20px;
+}
+.welcome{
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 20px;
+    font-weight: 900;
+    margin-bottom: 50px;
+}
+
+label{
+    color:  rgb(165, 163, 163);;
+}
+.container3{
+    width: 100%;
+    display: flex;
+    justify-content: end;
+    height: 65vh;
+    object-fit: cover;
+    border-radius: 0 8px 8px 0;
+}
+.btn0 {
+    display: flex;
+    justify-content: center;
+}
+.pass {
+    margin-bottom: 5px;
+}
+button {
+    padding: 15px 20px;
+    border:none;
+    background-color: rgb(84, 194, 245);
+    border-radius: 4px;
+}
+button:hover {
+    background-color: blueviolet;
+    cursor: pointer;
+}
+.frfr{
+    margin-bottom: 40px;
+}
+@media(max-width:500px){
+    .container3{
+        flex-wrap: wrap;
+        flex-direction: row
+    }
+}
