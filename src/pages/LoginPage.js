@@ -6,11 +6,12 @@ import Typography from '@mui/material/Typography';
 import myImage from '../photos/pexels-tobiasbjorkli-1693095 (1).jpg';
 import Glogo from '../photos/7123025_logo_google_g_icon.png';
 import '../LoginPage.css';
-import {signInWithEmailAndPassword, signInWithPopup} from 'firebase/auth';
+import {signInWithEmailAndPassword, signInWithPopup, updateProfile} from 'firebase/auth';
 import {GoogleAuthProvider} from 'firebase/auth';
 import { auth } from '../firebase';
 import React, { useState , useEffect} from 'react';
 import {collection} from "firebase/firestore"
+import { update } from 'firebase/database';
 
 const LoginPage = () => {
   const [emailError, setEmailError] = useState(false);

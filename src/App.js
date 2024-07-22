@@ -13,7 +13,8 @@ import {app} from "./firebase";
 import {getDatabase, ref, set} from "firebase/database"
 
 export default function App() {
-  // const user = useSelector((state) => state.data.user);
+  //   const user = useSelector((state) => state.user.user);
+  // const isLoading = useSelector((state) => state.user.isLoading);
 
   return (
     <div>
