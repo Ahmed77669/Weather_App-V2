@@ -9,7 +9,7 @@ import weatherPhoto from "../photos/weather-app.png";
 
 const Home = () => {
   return (
-    <div>
+    <div style={{display: "block"}}>
       <div style={{display: "flex", flexDirection: "row", justifyContent: "space-between"}}>
         <div style={{display: "flex",flexDirection: "row",marginLeft: "30px"}}>
           <div>
