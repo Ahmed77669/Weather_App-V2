@@ -4,7 +4,7 @@ import weatherPhoto from "../photos/weather-app.png";
 import userPhoto from "../photos/0d64989794b1a4c9d89bff571d3d5842.jpg";
 import searchPhoto from "../photos/search.png";
 import clear from "../photos/clear.png";
-import cloud from "../photos/cloud.png";
+import cloud from "..photos/cloud.png";
 import drizzle from "../photos/drizzle.png";
 import rain from "../photos/rain.png";
 import snow from "../photos/snow.png";
@@ -15,38 +15,41 @@ import axios from 'axios'
 import { Link } from "react-router-dom";
 import '../Weather.css';
 const Weather =  () =>{
-
-    const [weatherData, setWeatherData] = useState(false);
-    const allIcons = {
-        "01d":clear,
-        "01n":clear,
-        "02d":cloud,
-        "02n":cloud,
-        "03d":cloud,
-        "03n":cloud,
-        "04d":drizzle,
-        "04n":drizzle,
-        "09d":rain,
-        "09n":rain,
-        "10d":rain,
-        "10n":rain,
-        "13d":snow,
-        "13n":snow,
-    }
     const [data, setData] = useState({
       celcius:10,
-      name: 'london',
+      name: 'London',
       humidity:10,
       speed: 2
     })
-    useEffect(() => {
-      const apiUrl = 'https://api.openweathermap.org/data/2.5/weather?q=London&appid=54e2c0bd6411f4bbf8bbbb538f7b88e0&units=metric';
-      axios.get(apiUrl)
-      .then(res => console.log(res))
-      .catch(err => console.log(err));
-    },[])
+    const [name, setName] = useState('');
+
+
+    const handleClick = () => {
+      if(name !== ""){
+        const apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${name}&appid=54e2c0bd6411f4bbf8bbbb538f7b88e0&units=metric`;
+        axios.get(apiUrl)
+        .then(res => {
+          let imagePath='';
+          
+          if(res.data.weather[0].main == "Clouds"){
+            imagePath = "..photos/cloud.png";
+          }else if(res.data.weather[0].main == "Clear"){
+            imagePath = "..photos/clear.png";
+          }else if(res.data.weather[0].main == "Rain"){
+            imagePath = "..photos/rain.png";
+          }else if(res.data.weather[0].main == "Drizzle"){
+            imagePath = "..photos/cloud.png";
+          }else{
+            imagePath = "..photos/cloud.png";
+          }
+          setData({...data,celcius:res.data.main.temp, name: res.data.name, 
+            humidity: res.data.main.humidity, speed: res.data.wind.speed,image:imagePath 
+          })
+        })
+      }
+    }
     return(
-        <div style={{backgroundColor:"#FFFFFF"}}>
+      <div style={{backgroundColor:"#FFFFFF"}}>
       <div style={{display: "flex", flexDirection: "row", justifyContent: "space-between" , marginBottom:"50px"}}>
         <div style={{display: "flex",flexDirection: "row",marginLeft: "30px"}}>
           <div>
@@ -71,10 +74,10 @@ const Weather =  () =>{
       <div style={{placeSelf:"center", display:"flex", justifyContent:"center" }}>
         <p style={{fontFamily:'"Poppins", sans-serif', fontSize:"30px", fontWeight:"700"}}>Enter the name of a city to check the weather</p>
       </div>
-      <div style={{display:"flex",marginLeft:"37%"}}>
-        <input type='name' style={{ width:"300px",outline:"none" , borderRadius:"30px"}} placeholder='Enter Name of City'/>
+      <div style={{display:"flex"}}>
+        <input type='name' style={{ width:"300px",outline:"none" , borderRadius:"30px" , marginLeft:"120px"}} placeholder='Enter Name of City' onChange={e => setName(e.target.value)}/>
         <div style={{width:"30px" , alignItems:"center"}}>
-        <button id="search_b">
+        <button id="search_b" onClick={handleClick}>
             <img src={searchPhoto} style={{width:"20px" ,alignContent:"center"}}/>
         </button>
         </div>
@@ -82,31 +85,32 @@ const Weather =  () =>{
       <div id="mains">
       <div id="cont">
         <div style={{width:"100%"}}>
-        <img src={weatherData.icon} style={{width:"224px" , height:"224px" , marginLeft:"22%"}}/>
+        <img src={data.image} style={{width:"224px" , height:"224px" , marginLeft:"20%"}}/>
         </div>
+        
         <div style={{display:"flex", justifyContent:"center",
         }}>
-            <p style={{fontFamily:'"Poppins", sans-serif', fontSize:"60px", marginTop:"0",marginBottom:"0px", color:"#fff", lineHeight:"50px"}}>{weatherData.temperature}°c<br/><span style={{fontSize:"30px" , marginLeft:"3%" , fontWeight:"400"}}>{weatherData.location}</span></p>
+            <p style={{fontFamily:'"Poppins", sans-serif', fontSize:"60px", marginTop:"0",marginBottom:"0px", color:"#fff", lineHeight:"60px"}}>{Math.floor(data.celcius)}°c<br/><span style={{fontSize:"35px" , fontWeight:"400"}}>{data.name}</span></p>
         </div>
         <div style={{display:"flex", justifyContent:"space-between"}}>
             <div style={{display:"flex" , marginLeft:"20px", marginTop:"40px"}}>
                 <img src={humidity} style={{height:"30px" , marginRight:"5px"}}/>
                 <div style={{display:'flex',justifyContent:"top"}}>
-                <p style={{textAlign:"center" , marginTop:"10%",color:"white",fontFamily:'"Poppins", sans-serif' }}>{weatherData.humidity}%<br/><span>Humidity</span></p>
+                <p style={{textAlign:"center" , marginTop:"10%",color:"white",fontFamily:'"Poppins", sans-serif' ,lineHeight:"20px"}}>{data.humidity}%<br/><span>Humidity</span></p>
                 </div>
             </div>
             <div style={{display:"flex" , marginRight:"20px", marginTop:"40px"}}>
                 <img src={wind} style={{height:"30px" , marginRight:"5px"}}/>
                 <div style={{display:'flex',justifyContent:"top"}}>
-                <p style={{textAlign:"center" , marginTop:"8%",color:"white",fontFamily:"'Poppines', sans-serif"}}>{weatherData.windSpeed} Km/h<br/><span>Wind Speed</span></p>
+                <p style={{textAlign:"center" , marginTop:"8%",color:"white",fontFamily:"'Poppines', sans-serif"}}>{data.speed} Km/h<br/><span>Wind Speed</span></p>
                 </div>
             </div>
-
             </div>
         </div>
       </div>
+      
       </div>
-        
+
     );
 };
 

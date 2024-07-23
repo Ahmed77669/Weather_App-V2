@@ -1,5 +1,7 @@
 body{
     background-color: #fff;
+    display: flex;
+    justify-content: center;
 }
 
 #search_b{
@@ -17,8 +19,10 @@ body{
     /* align-items: center; */
     /* display: flex; */
     justify-content: center;
-    background: linear-gradient(#3E2D8F, #8E78C8);
+    background: linear-gradient(#3f1de9, #6b39eb);
     border: none;
     border-radius: 10px;
     
 }
+
+/* #3E2D8F */
