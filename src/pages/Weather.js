@@ -10,6 +10,7 @@ import rain from "../photos/rain.png";
 import snow from "../photos/snow.png";
 import wind from "../photos/wind.png";
 import humidity from "../photos/humidity.png";
+import axios from 'axios'
 
 import { Link } from "react-router-dom";
 import '../Weather.css';
@@ -32,24 +33,18 @@ const Weather =  () =>{
         "13d":snow,
         "13n":snow,
     }
-    const search = async (city)=>{
-        try{
-            const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=54e2c0bd6411f4bbf8bbbb538f7b88e0&units=metric`;
-            const response = await fetch(url);
-            const data = await response.json();
-            console.log(data);
-            const icon = allIcons[data.weather[0].icon]||clear;
-            setWeatherData({
-                humidity: data.main.humidity,
-                windSpeed: data.wind.speed,
-                temperature: Math.floor(data.main.temp),
-                location: data.name,
-                icon: icon
-            });
-        }catch(error){
-            
-        }
-    }
+    const [data, setData] = useState({
+      celcius:10,
+      name: 'london',
+      humidity:10,
+      speed: 2
+    })
+    useEffect(() => {
+      const apiUrl = 'https://api.openweathermap.org/data/2.5/weather?q=London&appid=54e2c0bd6411f4bbf8bbbb538f7b88e0&units=metric';
+      axios.get(apiUrl)
+      .then(res => console.log(res))
+      .catch(err => console.log(err));
+    },[])
     return(
         <div style={{backgroundColor:"#FFFFFF"}}>
       <div style={{display: "flex", flexDirection: "row", justifyContent: "space-between" , marginBottom:"50px"}}>
