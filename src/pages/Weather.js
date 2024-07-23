@@ -40,7 +40,7 @@ const Weather =  () =>{
           }else if(res.data.weather[0].main == "Drizzle"){
             imagePath = "..photos/cloud.png";
           }else{
-            imagePath = "..photos/cloud.png";
+            imagePath = "..photos/clear.png";
           }
           setData({...data,celcius:res.data.main.temp, name: res.data.name, 
             humidity: res.data.main.humidity, speed: res.data.wind.speed,image:imagePath 
