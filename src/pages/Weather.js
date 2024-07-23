@@ -68,7 +68,7 @@ const Weather = () => {
   };
 
   return (
-    <div style={{ backgroundColor: "#FFFFFF" }}>
+    <div style={{ backgroundColor: "#FFFFFF"}}>
       <div
         style={{
           display: "flex",
@@ -127,14 +127,14 @@ const Weather = () => {
           Enter the name of a city to check the weather
         </p>
       </div>
-      <div style={{ display: "flex" }}>
+      <div style={{ display: "flex" , justifyContent:"center" , margin:"0"}}>
         <input
           type="name"
           style={{
             width: "300px",
             outline: "none",
             borderRadius: "30px",
-            marginLeft: "120px",
+            marginLeft: "0px",
           }}
           placeholder="Enter Name of City"
           onChange={(e) => setName(e.target.value)}
