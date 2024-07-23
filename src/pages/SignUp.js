@@ -7,9 +7,9 @@ import Typography from '@mui/material/Typography';
 import React, { useState , useEffect} from 'react';
 import { createUserWithEmailAndPassword } from 'firebase/auth';
 import { auth } from '../firebase';
-import {db} from "../firebase"
+import {db} from "../firebase";
+import {useSelector} from "react-redux";
 import {collection ,getDocs,addDoc} from "firebase/firestore"
-
 const SignUp = () => {
   const [users, setUsers] = useState([]);
   const usersCollectionRef = collection(db,"users")
@@ -19,7 +19,6 @@ const SignUp = () => {
   const [confirmPassword, setConfirmPassword] = useState('');
   const [passwordError, setPasswordError] = useState(false);
   const navigate = useNavigate();
-
   const createUser = async () => {
     if (password !== confirmPassword) {
       setPasswordError(true);

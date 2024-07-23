@@ -14,6 +14,7 @@ import humidity from "../photos/humidity.png";
 import { Link } from "react-router-dom";
 import '../Weather.css';
 const Weather =  () =>{
+
     const [weatherData, setWeatherData] = useState(false);
     const allIcons = {
         "01d":clear,
@@ -33,7 +34,7 @@ const Weather =  () =>{
     }
     const search = async (city)=>{
         try{
-            const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${import.meta.env.VITE_APP_ID}`;
+            const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=54e2c0bd6411f4bbf8bbbb538f7b88e0&units=metric`;
             const response = await fetch(url);
             const data = await response.json();
             console.log(data);
