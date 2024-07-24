@@ -127,7 +127,7 @@ const LoginPage = () => {
           <img
             src={myImage}
             alt="Login"
-            style={{ width: "70%", objectFit: "cover", borderRadius: "0 8px 8px 0" , height:"600px"}}
+      
             className='LOi'
           />
         </div>
