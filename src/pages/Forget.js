@@ -32,7 +32,7 @@ const Forget = () => {
       <div style={{    
         width: "400px",
     border: "none",
-    height: "60vh",
+    height: "400px",
     backgroundColor: "#ffffff",
     borderRadius: "8px",
     display: "flex",
