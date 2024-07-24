@@ -127,7 +127,6 @@ const LoginPage = () => {
           <img
             src={myImage}
             alt="Login"
-      
             className='LOi'
           />
         </div>
