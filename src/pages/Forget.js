@@ -6,66 +6,68 @@ import Typography from '@mui/material/Typography';
 import myImage from '../photos/pexels-tobiasbjorkli-1693095 (1).jpg';
 import Glogo from '../photos/7123025_logo_google_g_icon.png';
 import '../LoginPage.css';
-import {signInWithEmailAndPassword, signInWithPopup, updateProfile} from 'firebase/auth';
+import {signInWithEmailAndPassword, signInWithPopup, updateProfile, confirmPasswordReset, sendPasswordResetEmail} from 'firebase/auth';
 import {GoogleAuthProvider} from 'firebase/auth';
 import { auth } from '../firebase';
 import React, { useState , useEffect} from 'react';
 import {collection} from "firebase/firestore"
 import { update } from 'firebase/database';
-
 const Forget = () => {
-  const [emailError, setEmailError] = useState(false);
-  const [email, setEmail] = useState('');
-
-  const navigate = useNavigate();
-
+    
+    const [email, setEmail] = useState('');
+    const navigate = useNavigate();
+    const Resetmail = async(e) => {
+        try{
+            e.preventDefault();
+            await sendPasswordResetEmail(auth,email);
+            alert('Check email');
+            navigate('/LoginPage');
+        }catch(error){
+            console.log('Error Login: ',error)
+            alert(`Error Login: ${error.message}`);
+        }
+    };
   return (
     <div style={{ display: "flex", justifyContent: "center" }}>
-      <div className="containedr">
-        <div className="containedr2">
-          <Typography variant="h3" component="p" className="welcome" style={{ margin: "30px 40px 60px 40px" }}>
-            Welcome back
+      <div style={{    
+        width: "400px",
+    border: "none",
+    height: "60vh",
+    backgroundColor: "#ffffff",
+    borderRadius: "8px",
+    display: "flex",
+    justifyContent: "space-between",
+    marginTop: "10%",
+    boxShadow: "5px 3px 10px black",
+    border: "1px solid gray"}}>
+        <div className='containder2' style={{ width:"350px"}}>
+          <Typography variant="h3" component="p" className="welcome" style={{ margin: "30px 20px 100px 20px" }}>
+            Reset Password
           </Typography>
-          <div style={{display:'flex', justifyContent:"center", marginBottom:"15px"}}>
-            <button style={{ width: "220px", padding: "1px 6px 1px 0px", border: "none", backgroundColor: "rgb(15, 104, 219)", cursor: "pointer" }}onClick={signInWithGoogle}>
-              <div style={{ display: "flex", flexDirection: "row" }}>
-                <div style={{ display: "flex", verticalAlign: "middle", backgroundColor: "#FFFFFF", marginRight: "20px" }}>
-                  <img src={Glogo} style={{ width: "50px" }} alt="Google icon" />
-                </div>
-                <div style={{ display: "flex", verticalAlign: "middle", justifyContent: "center", marginTop: "2%" }}>
-                  <p style={{ verticalAlign: "middle" }}>Sign in With Google</p>
-                </div>
-              </div>
-            </button>
-          </div>
-            <div style={{display:"flex" , flexDirection:"column", justifyContent:"center" , marginLeft:"50%" , fontFamily:"sans", fontSize:"18px", color:"gray"}}>
-              <p style={{display:"flex"}}>or</p>
-            </div>
           <form className="login" method='Post'>
           <TextField
-              error={emailError}
+              
               label="Email"
               type="email"
-              fullWidth
+              fulWidth
               margin="normal"
               variant="outlined"
               onChange={(e) => {
                 setEmail(e.target.value);
-                setEmailError(false);
+                
               }}
-              helperText={emailError ? "Please enter the Email" : ""}
               />
-            <div className="btn1">
+            <div className="btn1" style={{display:"flex",justifyContent:"center"}}>
               <Button
                 variant="contained"
                 type='submit'
                 color="primary"
-                fullWidth
+                halfWidth
                 to="/Forget"
-                style={{marginTop:"40px"}}
-                
-              >
-                Login
+                style={{marginTop:"40px", padding:"10px 40px"}}
+                onClick={Resetmail}
+                >
+                Reset
               </Button>
             </div>
           </form>
@@ -76,3 +78,16 @@ const Forget = () => {
 }
 
 export default Forget;
+
+
+
+
+
+
+
+
+
+
+
+
+
