@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/Weather_App-V2/static/css/main.55ae43f7.css",
-    "main.js": "/Weather_App-V2/static/js/main.8c5637cf.js",
+    "main.js": "/Weather_App-V2/static/js/main.a18e5035.js",
     "static/media/pexels-tobiasbjorkli-1693095 (1).jpg": "/Weather_App-V2/static/media/pexels-tobiasbjorkli-1693095 (1).5fe770bd4d62e743b56d.jpg",
     "static/media/DeWatermark.ai_1721056739125.png": "/Weather_App-V2/static/media/DeWatermark.ai_1721056739125.76bb959def2d2950559f.png",
     "static/media/DeWatermark.ai_1721399071946.png": "/Weather_App-V2/static/media/DeWatermark.ai_1721399071946.b603527fb6bdc21f719a.png",
@@ -11,10 +11,10 @@
     "static/media/cloud.png": "/Weather_App-V2/static/media/cloud.20f353f873a9b27949a9.png",
     "index.html": "/Weather_App-V2/index.html",
     "main.55ae43f7.css.map": "/Weather_App-V2/static/css/main.55ae43f7.css.map",
-    "main.8c5637cf.js.map": "/Weather_App-V2/static/js/main.8c5637cf.js.map"
+    "main.a18e5035.js.map": "/Weather_App-V2/static/js/main.a18e5035.js.map"
   },
   "entrypoints": [
     "static/css/main.55ae43f7.css",
-    "static/js/main.8c5637cf.js"
+    "static/js/main.a18e5035.js"
   ]
 }
